@@ -18,4 +18,3 @@ class Client(object):
         json_response = json.loads(res)
 
         return json_response
-

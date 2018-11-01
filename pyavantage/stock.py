@@ -59,15 +59,10 @@ class AVStock(object):
         else:
             raise Exception("Period not available")
 
-    def get_stock_data(self, period, symbol, params={}):
+    def get_stock_data(self,  period, symbol,  params={}):
         params['symbol'] = symbol
         path = self.get_function(period) + self.get_path_from_params(params)
 
         json_response = self.client.get_response(path)
         stock_data = self.process_data(json_response)
         return stock_data
-
-if __name__ == '__main__':
-    alpha = AVStock("demo")
-    stock_data = alpha.get_stock_data("DAILY", "MSFT")
-    print(stock_data)
